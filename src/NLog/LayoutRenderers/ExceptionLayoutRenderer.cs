@@ -359,6 +359,11 @@ namespace NLog.LayoutRenderers
         /// <returns></returns>
         protected static string ParseMethodNameFromStackTrace(string stackTrace)
         {
+            if (string.IsNullOrEmpty(stackTrace))
+            {
+                return string.Empty;
+            }
+
             // get the first line of the stack trace
             string stackFrameLine;
 
